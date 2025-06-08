@@ -42,7 +42,7 @@ import           System.Taffybar.Util
 
 -- | An ADT representing the edge of the monitor along which taffybar should be
 -- displayed.
-data Position = Top | Bottom
+data Position = Top | Bottom | Left | Right
   deriving (Show, Read, Eq, Ord, Enum, Bounded)
 
 -- | A configuration object whose interface is simpler than that of
@@ -109,6 +109,8 @@ toStrutConfig SimpleTaffyConfig { barHeight = height
       case pos of
         Top -> TopPos
         Bottom -> BottomPos
+        Left -> LeftPos
+        Right -> RightPos
   }
 
 toBarConfig :: SimpleTaffyConfig -> Int -> IO BC.BarConfig
